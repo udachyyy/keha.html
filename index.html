@@ -1,190 +1,148 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>ЕРЖАНАТ — Тёмная Галерея</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      color: #00ff00;
-      font-family: 'Courier New', monospace;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <title>ЕРНЯЗЖАНАТ — Тёмная Галерея</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            overflow: hidden; /* убираем скролл, чтобы фон не двигался */
+        }
 
-    header {
-      text-align: center;
-      padding: 40px 10px;
-      font-size: 36px;
-      font-weight: bold;
-      text-shadow: 0 0 10px #00ff00;
-      border-bottom: 1px solid #00ff00;
-    }
+        /* Холст для матрицы */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* фон позади */
+            background: black;
+        }
 
-    .subheader {
-      font-size: 18px;
-      margin-top: -20px;
-      color: #0aff0a;
-    }
+        header {
+            text-align: center;
+            padding: 40px 10px;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00;
+            border-bottom: 1px solid #00ff00;
+        }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 30px;
-    }
+        .subheader {
+            font-size: 18px;
+            margin-top: -20px;
+            color: #0aff0a;
+        }
 
-    .gallery img {
-      width: 300px;
-      height: auto;
-      border: 2px solid #00ff00;
-      border-radius: 4px;
-      box-shadow: 0 0 15px #00ff00;
-      transition: transform 0.3s, filter 0.3s;
-    }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-      filter: brightness(1.2);
-    }
+        .gallery img {
+            width: 300px;
+            height: auto;
+            border: 2px solid #00ff00;
+            border-radius: 4px;
+            box-shadow: 0 0 15px #00ff00;
+            transition: transform 0.3s, filter 0.3s;
+        }
 
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 14px;
-      color: #0aff0a;
-      text-align: center;
-      border-top: 1px solid #00ff00;
-    }
+        .gallery img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
 
-    .glitch {
-      animation: glitch 1s infinite;
-    }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 14px;
+            color: #0aff0a;
+            text-align: center;
+            border-top: 1px solid #00ff00;
+        }
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red, -2px 0 blue; }
-      25% { text-shadow: -2px 0 red, 2px 0 blue; }
-      50% { text-shadow: 2px 0 blue, -2px 0 red; }
-      75% { text-shadow: -2px 0 blue, 2px 0 red; }
-      100% { text-shadow: 2px 0 red, -2px 0 blue; }
-    }
+        .glitch {
+            animation: glitch 1s infinite;
+        }
 
-    /* canvas фон */
-    #matrix-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      display: block;
-    }
-    @media (max-width: 600px) {
-      #matrix-bg { display: none; }
-    }
-  </style>
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            25% { text-shadow: -2px 0 red, 2px 0 blue; }
+            50% { text-shadow: 2px 0 blue, -2px 0 red; }
+            75% { text-shadow: -2px 0 blue, 2px 0 red; }
+            100% { text-shadow: 2px 0 red, -2px 0 blue; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Анимированный фон -->
+    <canvas id="matrix"></canvas>
 
-  <canvas id="matrix-bg"></canvas>
+    <header class="glitch">
+        ЕРЖАНАТ
+        <div class="subheader">тёмная галерея хакеров</div>
+    </header>
 
-  <header class="glitch">
-    ЕРЖАНАТ
-    <div class="subheader">тёмная галерея хакеров</div>
-  </header>
+    <div class="gallery">
+        <img src="https://i.ytimg.com/vi/ukV7wz5vkpI/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLCW2ZKRucCUEasW9pVX3TgYGNwVKQ" alt="Hacker 1">
+        <img src="https://i.ytimg.com/vi/WkRT1Tj41FQ/maxresdefault.jpg" alt="Hacker 2">
+        <img src="https://avatars.mds.yandex.net/i?id=903d86e9b086202db6c218bbf79cfea5_l-5879395-images-thumbs&n=13" alt="Hacker 3">
+        <img src="https://avatars.mds.yandex.net/i?id=3cd9c4cf829ace7324c38f4343c64d03_l-4903956-images-thumbs&n=13" alt="Hacker 4">
+    </div>
 
-  <div class="gallery">
-    <img src="https://i.ytimg.com/vi/ukV7wz5vkpI/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLCW2ZKRucCUEasW9pVX3TgYGNwVKQ" alt="Hacker 1">
-    <img src="https://i.ytimg.com/vi/WkRT1Tj41FQ/maxresdefault.jpg" alt="Hacker 2">
-    <img src="https://avatars.mds.yandex.net/i?id=903d86e9b086202db6c218bbf79cfea5_l-5879395-images-thumbs&n=13" alt="Hacker 3">
-    <img src="https://avatars.mds.yandex.net/i?id=3cd9c4cf829ace7324c38f4343c64d03_l-4903956-images-thumbs&n=13" alt="Hacker 4">
-  </div>
+    <footer>
+        &copy; 2025 ЕРНЯЗЖАНАТ. Проект для избранных.<br>
+        deep@ernyazhanat.onion
+    </footer>
 
-  <footer>
-    &copy; 2025 ЕРЖАНАТ. Проект для избранных.<br>
-    deep@ernyazhanat.onion
-  </footer>
+    <script>
+        // Матрица-анимация
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
 
-  <script>
-    (function() {
-      const canvas = document.getElementById('matrix-bg');
-      const ctx = canvas.getContext('2d');
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
 
-      const fontSize = 16;
-      const columnsGap = fontSize;
-      const speedMin = 30;
-      const speedMax = 120;
-      const opacity = 0.08;
-      const glow = true;
+        const letters = "01";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
 
-      const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*';
-      let columns = [];
-      let lastTime = performance.now();
+        const drops = Array(Math.floor(columns)).fill(1);
 
-      function resize() {
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = Math.floor(window.innerWidth * dpr);
-        canvas.height = Math.floor(window.innerHeight * dpr);
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        const colsCount = Math.ceil(window.innerWidth / columnsGap);
-        columns = new Array(colsCount).fill(0).map(() => {
-          return {
-            y: Math.random() * window.innerHeight - window.innerHeight,
-            speed: speedMin + Math.random() * (speedMax - speedMin),
-            length: 5 + Math.floor(Math.random() * 20)
-          };
+            ctx.fillStyle = "#0F0";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        // Автоматическая адаптация при изменении окна
+        window.addEventListener("resize", () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
         });
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      function frame(now) {
-        const dt = (now - lastTime) / 1000;
-        lastTime = now;
-
-        ctx.fillStyle = `rgba(0, 0, 0, ${opacity})`;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.font = fontSize + 'px "Courier New", monospace';
-        ctx.textBaseline = 'top';
-
-        if (glow) {
-          ctx.shadowColor = '#00ff88';
-          ctx.shadowBlur = 8;
-        } else {
-          ctx.shadowBlur = 0;
-        }
-
-        for (let i = 0; i < columns.length; i++) {
-          const col = columns[i];
-          col.y += col.speed * dt;
-
-          for (let k = 0; k < col.length; k++) {
-            const x = i * columnsGap;
-            const y = col.y - k * fontSize;
-
-            if (y < -fontSize || y > canvas.height + fontSize) continue;
-
-            const isHead = (k === 0);
-            ctx.fillStyle = isHead ? '#ccffdd' : '#00ff88';
-            const ch = chars.charAt(Math.floor(Math.random() * chars.length));
-            ctx.fillText(ch, x, y);
-          }
-
-          if (col.y - col.length * fontSize > canvas.height) {
-            col.y = -Math.random() * 200;
-            col.speed = speedMin + Math.random() * (speedMax - speedMin);
-            col.length = 5 + Math.floor(Math.random() * 25);
-          }
-        }
-
-        requestAnimationFrame(frame);
-      }
-
-      requestAnimationFrame(frame);
-    })();
-  </script>
+    </script>
 </body>
 </html>
